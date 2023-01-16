@@ -1,0 +1,149 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/c31de888ff.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="products.js"></script>
+    <script src="shop.js" defer></script>
+    <script src="cart.js"></script>
+    <title>E Commerce Website | Shop</title>
+  </head>
+  <body class="shop-page">
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <a href="/">
+            <img src="logo.png" alt="website logo" />
+          </a>
+        </div>
+        <ul>
+          {{#if user}}
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+            <li id="cart-togeller">
+              <i style="cursor: pointer;" class="fa fa-shopping-cart icon"></i>
+            </li>
+          {{else}}
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <li id="cart-togeller">
+              <i style="cursor: pointer;" class="fa fa-shopping-cart icon"></i>
+            </li>
+          {{/if}}
+
+        </ul>
+      </nav>
+
+      <div class="shop">
+        <div class="menu">
+          <ul class="menu-container">
+            <div class="category">
+              <label for="category1">SuperMarket</label>
+              <input type="checkbox" name="category1" id="category1" />
+              <ul class="sub-categories">
+                <li>Groceries</li>
+                <li>Household Products</li>
+                <li>Animals Supplies</li>
+              </ul>
+            </div>
+            <div class="category">
+              <label for="category2">Beauty & Health</label>
+              <input type="checkbox" name="category1" id="category2" />
+              <ul class="sub-categories">
+                <li>Perfumes</li>
+                <li>Face Care</li>
+                <li>Body Care</li>
+                <li>Hair Care</li>
+              </ul>
+            </div>
+            <div class="category">
+              <label for="category3">Fashion Accessories</label>
+              <input type="checkbox" name="category1" id="category3" />
+              <ul class="sub-categories">
+                <li>Women's Accessories</li>
+                <li>Men's Accessories</li>
+                <li>Luggage and Travel</li>
+              </ul>
+            </div>
+            <div class="category">
+              <label for="category4">Home & Kitchen</label>
+              <input type="checkbox" name="category1" id="category4" />
+              <ul class="sub-categories">
+                <li>Cooking and Culinary</li>
+                <li>Cooking and Home</li>
+                <li>DIY and Renovation</li>
+              </ul>
+            </div>
+            <div class="category">
+              <label for="category5">Computers</label>
+              <input type="checkbox" name="category1" id="category5" />
+              <ul class="sub-categories">
+                <li>Computers</li>
+                <li>Storage</li>
+                <li>Network</li>
+                <li>PC Components</li>
+                <li>Accessories</li>
+              </ul>
+            </div>
+            <div class="category">
+              <label for="category6">Babies & Toys</label>
+              <input type="checkbox" name="category1" id="category6" />
+              <ul class="sub-categories">
+                <li>Baby Room</li>
+                <li>Nappies</li>
+                <li>Food</li>
+                <li>Strollers</li>
+              </ul>
+            </div>
+          </ul>
+        </div>
+        <div class="preview">
+          <form class="product-search">
+            <input
+              type="text"
+              name="product"
+              id="product-name"
+              placeholder="Search for product..."
+            />
+            <input type="submit" value="Search" />
+          </form>
+
+          <div id="products-container" class="products-container">
+
+          </div>
+          <div id="cart" class="cart">
+            <div id="cart-close-btn" class="close-icon">&times;</div>
+            <h1>Your Cart</h1>
+            <div class="cart-content">
+            </div>
+
+            <div class="total">
+              <div class="total-title">Total</div>
+              <div id="total-price"></div>
+            </div>
+            <button>Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const cartOppener = document.getElementById('cart-togeller'); const
+      cartCloseButton = document.getElementById('cart-close-btn'); const cart =
+      document.getElementById('cart'); cartOppener.addEventListener('click',
+      ()=> { cart.classList.add('show-cart'); });
+      cartCloseButton.addEventListener('click', () => {
+      cart.classList.remove('show-cart'); });
+    </script>
+  </body>
+</html>
